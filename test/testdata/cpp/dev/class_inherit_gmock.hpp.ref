@@ -1,0 +1,47 @@
+#ifndef test_double_gmock_hpp
+#define test_double_gmock_hpp
+#include "test_double.hpp"
+#include "gmock/gmock.h"
+
+namespace TestDouble {
+class MockVirtA : public VirtA {
+public:
+    MOCK_METHOD0(virtA, void());
+};
+} //NS:TestDouble
+
+namespace TestDouble {
+class MockVirtB : public VirtB {
+public:
+    MOCK_METHOD0(virtA, void());
+    MOCK_METHOD0(virtB, void());
+};
+} //NS:TestDouble
+
+namespace TestDouble {
+class MockVirtC : public VirtC {
+public:
+    MOCK_METHOD0(virtA, void());
+    MOCK_METHOD0(virtB, void());
+    MOCK_METHOD0(virtC, void());
+};
+} //NS:TestDouble
+
+namespace ns1 {
+namespace ns2 {
+namespace TestDouble {
+class MockNs2B : public Ns2B {
+public:
+};
+} //NS:TestDouble
+
+} //NS:ns2
+namespace TestDouble {
+class MockNs1A : public Ns1A {
+public:
+    MOCK_METHOD0(a, void());
+};
+} //NS:TestDouble
+
+} //NS:ns1
+#endif // test_double_gmock_hpp
